@@ -13,7 +13,8 @@
 		0A35CA381BFB7ECC004EF57C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A35CA371BFB7ECC004EF57C /* Assets.xcassets */; };
 		0A35CA3B1BFB7ECC004EF57C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A35CA391BFB7ECC004EF57C /* LaunchScreen.storyboard */; };
 		0A35CA431BFB7F02004EF57C /* FMHybridWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A35CA421BFB7F02004EF57C /* FMHybridWebViewController.swift */; };
-		0A35CA451BFB7FF4004EF57C /* FMScreenOrientationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A35CA441BFB7FF4004EF57C /* FMScreenOrientationDelegate.swift */; };
+		0A35CA4A1BFC9EA8004EF57C /* FMWebView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A35CA491BFC9EA8004EF57C /* FMWebView.storyboard */; };
+		0A35CA531BFCD55B004EF57C /* web in Resources */ = {isa = PBXBuildFile; fileRef = 0A35CA521BFCD55B004EF57C /* web */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +26,8 @@
 		0A35CA3A1BFB7ECC004EF57C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0A35CA3C1BFB7ECC004EF57C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A35CA421BFB7F02004EF57C /* FMHybridWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMHybridWebViewController.swift; sourceTree = "<group>"; };
-		0A35CA441BFB7FF4004EF57C /* FMScreenOrientationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMScreenOrientationDelegate.swift; sourceTree = "<group>"; };
+		0A35CA491BFC9EA8004EF57C /* FMWebView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FMWebView.storyboard; sourceTree = "<group>"; };
+		0A35CA521BFCD55B004EF57C /* web */ = {isa = PBXFileReference; lastKnownFileType = folder; path = web; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +60,25 @@
 		0A35CA2F1BFB7ECC004EF57C /* FMHybridApp */ = {
 			isa = PBXGroup;
 			children = (
+				0A35CA521BFCD55B004EF57C /* web */,
+				0A35CA481BFC9E5A004EF57C /* FMHybridWebView */,
 				0A35CA301BFB7ECC004EF57C /* AppDelegate.swift */,
 				0A35CA321BFB7ECC004EF57C /* ViewController.swift */,
 				0A35CA341BFB7ECC004EF57C /* Main.storyboard */,
 				0A35CA371BFB7ECC004EF57C /* Assets.xcassets */,
 				0A35CA391BFB7ECC004EF57C /* LaunchScreen.storyboard */,
 				0A35CA3C1BFB7ECC004EF57C /* Info.plist */,
-				0A35CA421BFB7F02004EF57C /* FMHybridWebViewController.swift */,
-				0A35CA441BFB7FF4004EF57C /* FMScreenOrientationDelegate.swift */,
 			);
 			path = FMHybridApp;
+			sourceTree = "<group>";
+		};
+		0A35CA481BFC9E5A004EF57C /* FMHybridWebView */ = {
+			isa = PBXGroup;
+			children = (
+				0A35CA421BFB7F02004EF57C /* FMHybridWebViewController.swift */,
+				0A35CA491BFC9EA8004EF57C /* FMWebView.storyboard */,
+			);
+			name = FMHybridWebView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,9 +139,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A35CA531BFCD55B004EF57C /* web in Resources */,
 				0A35CA3B1BFB7ECC004EF57C /* LaunchScreen.storyboard in Resources */,
 				0A35CA381BFB7ECC004EF57C /* Assets.xcassets in Resources */,
 				0A35CA361BFB7ECC004EF57C /* Main.storyboard in Resources */,
+				0A35CA4A1BFC9EA8004EF57C /* FMWebView.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,7 +156,6 @@
 			files = (
 				0A35CA331BFB7ECC004EF57C /* ViewController.swift in Sources */,
 				0A35CA431BFB7F02004EF57C /* FMHybridWebViewController.swift in Sources */,
-				0A35CA451BFB7FF4004EF57C /* FMScreenOrientationDelegate.swift in Sources */,
 				0A35CA311BFB7ECC004EF57C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,51 +9,38 @@
 import Foundation
 import UIKit
 
-class FMHybridWebViewController : UIViewController {
-    /*
+class FMHybridWebViewController : UIViewController, UIWebViewDelegate {
+
+    @IBOutlet var webView: UIWebView!
     
-    //instance member
-    private var webViewEngine: AnyObject<CDWebViewEngineProtocol>
-    private var commandDelegate: AnyObject<CDVCommandDelegate>
-    private var commandQueue: CDVCommandQueue
-    private var userAgent: NSString
-    
-    
-    var pluginObject: NSMutableArray
-    
-    */
-    
-    
-    //create web view based on the frame
-    func newWebViewWithFrame(bounds : CGRect) -> UIView {
-        return UIView()
-    }
-    
-    //URL scheme
-    func appURLScheme() -> NSString {
-        return "url"
-    }
-    
-    func errorURL() -> NSURL {
-        return NSURL()
-    }
-    
-    func parseInterfaceOrientation(orietations: NSArray) {
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
+        //turn off the scales pages to fit property for testing purpose
+        self.webView.scalesPageToFit = false;
+        self.webView.delegate = self
+        
+        let testHTML = NSBundle.mainBundle().pathForResource("web/index", ofType: "html")
+        do {
+            let contents = try String(contentsOfFile: testHTML!, encoding: NSUTF8StringEncoding) as String!   //use try here as it might throw exception
+            let baseUrl = NSURL(fileURLWithPath: testHTML!)
+             webView.loadHTMLString(contents as String, baseURL: baseUrl)
+        } catch let error as NSError {
+            print(error)
+        }
     }
     
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask.All
+    //shouldStartLoadWithRequest callback would be trigger when a new frame open inside a webview
+    func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        
+        //fiter the target trigger by its scheme
+        if (request.URL?.scheme == "fm") {
+            if (request.URL!.host == "button_click") {
+                //call back from the web button
+                self.navigationController?.popViewControllerAnimated(true);
+            }
+            return false
+        }
+        return true
     }
-    
-    func getCommandInstance(pluginName: NSString) -> AnyObject {
-        return "any object here";
-    }
-    
-    /*
-    func registerPlugin(plugin: CDVPlugin, className: NSString)
-    func registerPlugin(plugin: CDVPlugin, className: NSString)
-    
-    func parseSettingWithParser(delegate: NSObject<NSXMLParserDelegate>)
-    */
 }

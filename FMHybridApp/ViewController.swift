@@ -21,5 +21,8 @@ class ViewController: UIViewController {
     }
 
 
+    @IBAction func clickMeAction(sender: AnyObject) {
+        self.performSegueWithIdentifier("FMWebView", sender: nil)
+    }
 }
 
