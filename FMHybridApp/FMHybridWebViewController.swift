@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class FMHybridWebViewController : UIViewController, UIWebViewDelegate {
+class FMHybridWebViewController : UIViewController {
 
     @IBOutlet var webView: UIWebView!
     
@@ -30,6 +30,10 @@ class FMHybridWebViewController : UIViewController, UIWebViewDelegate {
         }
     }
     
+    
+}
+
+extension FMHybridWebViewController: UIWebViewDelegate {
     //shouldStartLoadWithRequest callback would be trigger when a new frame open inside a webview
     func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         
